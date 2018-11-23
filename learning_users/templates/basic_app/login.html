@@ -1,0 +1,25 @@
+{% extends "basic_app/base.html" %}
+
+{% block main_content %}
+
+  
+  <div class="jumbotron">
+      <h1>Necesitas Iniciar Sesion</h1>
+
+      
+      <form action="{% url 'basic_app:login' %}" method="POST">
+          <div class="form-group">
+              {% csrf_token %}
+              <label for="username">Nombre de Usuario</label>
+              <input type="text" name="username" placeholder="Ingrese su nombre de usuario">
+
+              <label for="password">Contraseña</label>
+              <input type="password" name="password">
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+      </form>
+      
+  </div>
+  
+
+{% endblock %}

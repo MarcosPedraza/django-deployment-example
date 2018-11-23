@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+
+
+
+{% block main_content %}
+
+    
+    <div class="jumbotron">
+
+        {% if registered %}
+
+        <h1>Gracias por Registrarte! :) </h1>
+
+        {% else %}
+
+        <h1>Registrate Aqui</h1>
+        
+        <form enctype="multipart/form-data" method="POST">
+            <legend>Por favor llene los datos</legend>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ user_form.as_p }} 
+                {{ profile_form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary" value="Register">Submit</button>
+        </form>
+        
+        {% endif %}
+       
+    </div>
+    
+{% endblock %}
